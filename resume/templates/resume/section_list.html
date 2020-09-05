@@ -1,6 +1,40 @@
+{% load static %}
 <html>
-    <head>'Maria Grant - Section list'</head>
-        <div>{{ sections }}</div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Spartan&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/resume.css' %}">
+<script src="https://kit.fontawesome.com/8f40431965.js" crossorigin="anonymous"></script>
+<style>
+    .w3-bar w3-white w3-padding w3-card{background-color: blue;}
+</style>
 
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-padding w3-card"
+       style="letter-spacing:1px;
+              height:200px;
+           ">
+   <div>
+
+    <!-- Right-sided navbar links. Hide them on small screens -->
+   <div class="contact_info">
+        <h1> <a href="#home" style="position: absolute; right: 50; font-family:'Spartan';">MG</a></h1></div>
+       <h5><a href="maria.grant.7885@gmail.com">maria.grant.7885@gmail.com</a></h5>
+       <a href="https://www.linkedin.com/in/maria-grant-4a0a22ab/"><i class="fab fa-linkedin fa-2x" ></i></a>
+       <a href="https://www.instagram.com/?hl=en"><i class="fab fa-instagram fa-2x"></i></a>
+       <a href="https://github.com/mariagrant785"><i class="fab fa-github fa-2x"></i></a>
+   </div>
+
+
+    <div class="w3-right w3-hide-small" style="position: absolute;
+              bottom: 0;">
+            <h3>{% for section in sections %}
+            <a href="{% url 'section' section_name=section.pk %}">{{ section.section_name}}&nbsp;&nbsp;</a>
+            {% endfor %}</h3>
+    </div>
+  </div>
+</div>z
 
 </html>

@@ -5,4 +5,9 @@ from .models import Project
 
 def section_list(request):
     sections = Section.objects.all()
-    return render(request, 'resume/section_list.html', {'sections':sections})
+    return render(request, 'resume/section_list.html', {'sections': sections})
+
+
+def project_list(request, section_name):
+    projects = Project.objects.filter(section=section_name)
+    return render(request, 'resume/section.html', {'projects': projects})
